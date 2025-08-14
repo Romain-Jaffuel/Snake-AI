@@ -13,6 +13,9 @@ def plot_learning_curve(x, scores, filename):
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
     plt.grid()
-    plt.savefig(filename)
     display.clear_output(wait=True)
     display.display(plt.gcf())
+    plt.savefig(filename)
+    plt.pause(0.1)
+
+    

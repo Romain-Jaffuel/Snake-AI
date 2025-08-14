@@ -5,7 +5,7 @@ from collections import namedtuple
 import numpy as np
 
 pygame.init()
-font = pygame.font.Font('arial.ttf', 25)
+font = pygame.font.SysFont('arial', 25)
 
 class Direction(Enum):
     RIGHT = 1
@@ -23,7 +23,7 @@ BLUE2 = (0, 100, 255)
 BLACK = (0,0,0)
 
 BLOCK_SIZE = 20
-SPEED = 50
+SPEED = 80
 
 class SnakeGameAI:
     def __init__(self, w=640, h=480):
@@ -71,7 +71,7 @@ class SnakeGameAI:
         if self.is_collision() or self.frame_iteration > 100*len(self.snake):
             game_over = True
             reward = -10
-            return game_over, self.score
+            return reward, game_over, self.score
             
         # 4. place new food or just move
         if self.head == self.food:
